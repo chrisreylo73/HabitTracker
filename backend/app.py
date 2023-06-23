@@ -130,21 +130,5 @@ def update_event(id):
    return {'event': format_event(event.one())}
 
 
-
-# @app.route('/test')
-# def index():
-#     # Example: Inserting a new user into the database
-#     username='JohnDoe'
-#     if not User.exists(username):
-#       user = User(username='JohnDoe', email='john@example.com')
-#       db.session.add(user)
-#       db.session.commit()
-#     description = 'Test Event'
-#     if not Event.exists(description):
-#       new_event = Event(description='Test Event')
-#       db.session.add(new_event)
-#       db.session.commit()
-#     return 'Hello, Flask with PostgreSQL and SQLAlchemy!'
-
 if __name__ == '__main__':
     app.run()

@@ -6,46 +6,86 @@ import axios from "axios";
 import {format} from "date-fns"
 // Styling
 import './App.css';
-
+import Tile from './Tile';
 
 
 const baseUrl = "http://localhost:5000"
 
-function App() {
+const App = () => {
+  const [listItems, setListItems] = useState([]);
+  const [newItem, setNewItem] = useState('');
 
-  const fetchEvents = async () =>{
-    const data = await axios.get(`${baseUrl}/events`)
-    console.log("DATA:", data);
-  }
-  const [description, setDescription] = useState("")
+  useEffect(() => {
+    fetchListItems();
+  }, []);
 
-  // Event handler function to update value entered in the inout field
-  const handleChange = e => {
-    setDescription(e.target.value);
-  }
-  // Event handler function triggered when form is submitted
-  const handleSubmit = e => {
-    // To stop page refresh 
-    e.preventDefault();
-    console.log(description);
-  }
+  const fetchListItems = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/events'); // Replace with your backend route
+      setListItems(response.data.events);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-  useEffect(() =>{
-    fetchEvents();
-  }, [])
+  const addListItem = async () => {
+    try {
+      const response = await axios.post('http://localhost:5000/events', { description: newItem }); // Replace with your backend route and data structure
+      setListItems([...listItems, response.data]);
+      setNewItem('');
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-  
+  const deleteListItem = async (id) => {
+    try {
+      await axios.delete(`http://localhost:5000/events/${id}`); // Replace with your backend route
+      const updatedList = listItems.filter((item) => item.id !== id);
+      setListItems(updatedList);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const updateListItem = async (id, updatedDescription) => {
+    try {
+      const response = await axios.put(`http://localhost:5000/events/${id}`, { description: updatedDescription }); // Replace with your backend route and data structure
+      const updatedList = listItems.map((item) =>
+        item.id === id ? response.data.event : item
+      );
+      setListItems(updatedList);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
-    <div className="App">
-    <header className="App-header">
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="description">Description</label>
-        <input onChange={handleChange} type="text" name="description" id="description" value={description} />
-        <button type="submit">Submit</button>
-      </form>
-    </header>
-  </div>
+    
+    <div>
+      <div className='calender'></div>
+      <h1>List Interface</h1>
+      <ul>
+        {listItems.map((item) => (
+          <li key={item.id}>
+            {item.description}
+            <button onClick={() => deleteListItem(item.id)}>Delete</button>
+            <input
+              type="text"
+              value={item.description}
+              onChange={(e) => updateListItem(item.id, e.target.value)}
+            />
+          </li>
+        ))}
+      </ul>
+      <input
+        type="text"
+        value={newItem}
+        onChange={(e) => setNewItem(e.target.value)}
+      />
+      <button onClick={addListItem}>Add Item</button>
+    </div>
   );
-}
+};
 
 export default App;
