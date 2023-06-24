@@ -6,7 +6,11 @@ import axios from "axios";
 import {format} from "date-fns"
 // Styling
 import './App.css';
-import Tile from './Tile';
+import SideBar from './components/SideBar';
+import TaskList from './components/TaskList';
+import Calender from './components/Calender';
+import Stats from './components/Stats';
+
 
 
 const baseUrl = "http://localhost:5000"
@@ -61,31 +65,47 @@ const App = () => {
   };
 
   return (
-    
-    <div>
-      <div className='calender'></div>
-      <h1>List Interface</h1>
-      <ul>
-        {listItems.map((item) => (
-          <li key={item.id}>
-            {item.description}
-            <button onClick={() => deleteListItem(item.id)}>Delete</button>
-            <input
-              type="text"
-              value={item.description}
-              onChange={(e) => updateListItem(item.id, e.target.value)}
-            />
-          </li>
-        ))}
-      </ul>
-      <input
-        type="text"
-        value={newItem}
-        onChange={(e) => setNewItem(e.target.value)}
-      />
-      <button onClick={addListItem}>Add Item</button>
+    <div className='App'>
+      <div className='container'>
+      <SideBar></SideBar>
+      <TaskList></TaskList>
+      <Calender></Calender>   
     </div>
+    <div className='statsCon'>
+          <Stats></Stats>
+    </div> 
+      
+     
+     
+    </div>
+    
   );
 };
 
 export default App;
+
+
+
+// <div>
+    //   <div className='calender'></div>
+    //   <h1>List Interface</h1>
+    //   <ul>
+    //     {listItems.map((item) => (
+    //       <li key={item.id}>
+    //         {item.description}
+    //         <button onClick={() => deleteListItem(item.id)}>Delete</button>
+    //         <input
+    //           type="text"
+    //           value={item.description}
+    //           onChange={(e) => updateListItem(item.id, e.target.value)}
+    //         />
+    //       </li>
+    //     ))}
+    //   </ul>
+    //   <input
+    //     type="text"
+    //     value={newItem}
+    //     onChange={(e) => setNewItem(e.target.value)}
+    //   />
+    //   <button onClick={addListItem}>Add Item</button>
+    // </div>

@@ -1,75 +1,9 @@
 body {
   display: flex;
   flex-direction: column;
-  background-color: #121212;
+  background-color:    #343131;
   font-family: Arial, sans-serif;
   color:  #FFFFFF
 }
-.calendar {
-  display: flex;
-  background-color: #531b1b;
-  min-width: 200px;
-  min-height: 200px;
-}
-.container {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-}
 
-h1 {
-  text-align: center;
-}
 
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-li input {
-  margin-left: 10px;
-}
-
-button {
-  margin-left: 10px;
-  padding: 5px 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0062cc;
-}
-
-input[type="text"] {
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-input[type="text"]:focus {
-  outline: none;
-  border-color: #007bff;
-}
-
-.add-item-container {
-  display: flex;
-  margin-top: 10px;
-}
-
-.add-item-container input {
-  flex-grow: 1;
-  margin-right: 10px;
-}
-
-.add-item-container button {
-  flex-shrink: 0;
-}
