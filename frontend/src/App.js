@@ -9,10 +9,9 @@ import './App.css';
 import SideBar from './components/SideBar';
 import TaskList from './components/TaskList';
 import Calender from './components/Calender';
-import Stats from './components/Stats';
-
-
-
+import Streaks from './components/Streaks';
+import Consistency from './components/Consistency';
+import CompStatus from './components/CompStatus';
 const baseUrl = "http://localhost:5000"
 
 const App = () => {
@@ -72,7 +71,9 @@ const App = () => {
       <Calender></Calender>   
     </div>
     <div className='statsCon'>
-          <Stats></Stats>
+          <Streaks></Streaks>
+          <Consistency></Consistency>
+          <CompStatus></CompStatus>
     </div> 
       
      

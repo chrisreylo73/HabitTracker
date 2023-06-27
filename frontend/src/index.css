@@ -7,37 +7,84 @@
    flex-direction: row;
 }
 .sideBar{
-   background-color: #086fc8;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-color: #2a2d2e;
    width: 90px;
    height: 65vh;
    margin: 8px;
    border-radius: 20px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 .calendar{
-   background-color: #464d52;
-   width: 800px;
+   background-color: #2a2d2e;
+   width: 1100px;
    height: 65vh;
    margin: 8px;
    border-radius: 20px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+
 }
 .statsCon{
    display: flex;
    flex-direction: row;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
    /* margin-left: 100px; */
 }
-.stats{
-   background-color: #086fc8;
-   width: 210vh;
-   height: 25vh;
+.streaks{
+   background-color: #2a2d2e;
+   width:70vh;
+   height: 28vh;
    margin: 5px;
    border-radius: 20px;
-   
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+.consist{
+   background-color: #2a2d2e;
+   width: 70vh;
+   height: 28vh;
+   margin: 5px;
+   border-radius: 20px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 .taskList{
-   background-color: #464d52;
+   /* display: flex;
+   flex-direction: column;
+   align-items: center; */
+   background-color: #ced5d7;
    width: 300px;
    height: 65vh;
    margin: 8px;
    border-radius: 20px;
-   
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
+.compStatus{
+   background-color: #2a2d2e;
+   width: 70vh;
+   height: 28vh;
+   margin: 5px;
+   border-radius: 20px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+.header{
+   border-radius: 15px 15px 0px 0px;
+   background-color: #2a2d2e;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+/* .sideBarButton {
+   display: flex;
+   margin-left: 20px;
+} */
+
+/* button{
+   border-radius: 10px;
+   height: 50px;
+   width: 50px;
+   border: none;
+   background-color: #097fe6;
+   box-shadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
+} */

@@ -2,6 +2,7 @@ from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from flask_cors import CORS
+import calendar
 # import psycopg2
 import os 
 from dotenv import load_dotenv
@@ -13,6 +14,10 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 CORS(app)
+
+def getCurrentDateAndTime():
+   c = calendar.TextCalendar(calender.)
+
 
 # Creating a model named User. In postgres it will show up as a table.
 # This table has columns for id, username, and email 
