@@ -6,58 +6,58 @@ import axios from "axios";
 import {format} from "date-fns"
 // Styling
 import './App.css';
-import SideBar from './components/SideBar';
 import TaskList from './components/TaskList';
-import Calender from './components/Calender';
-import Streaks from './components/Streaks';
-import Consistency from './components/Consistency';
-import CompStatus from './components/CompStatus';
+
 const baseUrl = "http://localhost:5000"
 
 const App = () => {
-  const [listItems, setListItems] = useState([]);
-  const [newItem, setNewItem] = useState('');
-
+  const [listItems, setListItems] = useState([]); // State variable to hold the list of items fetched from the backend
+  const [newItem, setNewItem] = useState(''); // State variable to store the value of a new item to be added
+  
   useEffect(() => {
-    fetchListItems();
+    fetchListItems(); // Fetch the list items from the backend when the component mounts
   }, []);
 
+  // Function to fetch the list items from the backend
   const fetchListItems = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/events'); // Replace with your backend route
-      setListItems(response.data.events);
+      const response = await axios.get(`${baseUrl}/events`); // Make a GET request to fetch the list items
+      setListItems(response.data.events); // Set the fetched list items in the state
     } catch (error) {
       console.error(error);
     }
   };
 
+  // Function to add a new item to the list
   const addListItem = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/events', { description: newItem }); // Replace with your backend route and data structure
-      setListItems([...listItems, response.data]);
-      setNewItem('');
+      const response = await axios.post(`${baseUrl}/events`, { description: newItem }); // Make a POST request to add the new item
+      setListItems([...listItems, response.data]); // Add the newly created item to the list
+      setNewItem(''); // Reset the new item value
     } catch (error) {
       console.error(error);
     }
   };
 
+  // Function to delete an item from the list
   const deleteListItem = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/events/${id}`); // Replace with your backend route
-      const updatedList = listItems.filter((item) => item.id !== id);
-      setListItems(updatedList);
+      await axios.delete(`${baseUrl}/events/${id}`); // Make a DELETE request to delete the item
+      const updatedList = listItems.filter((item) => item.id !== id); // Filter out the deleted item from the list
+      setListItems(updatedList); // Set the updated list in the state
     } catch (error) {
       console.error(error);
     }
   };
 
+  // Function to update an item in the list
   const updateListItem = async (id, updatedDescription) => {
     try {
-      const response = await axios.put(`http://localhost:5000/events/${id}`, { description: updatedDescription }); // Replace with your backend route and data structure
+      const response = await axios.put(`${baseUrl}/events/${id}`, { description: updatedDescription }); // Make a PUT request to update the item
       const updatedList = listItems.map((item) =>
         item.id === id ? response.data.event : item
-      );
-      setListItems(updatedList);
+      ); // Map over the list and update the specific item with the response from the backend
+      setListItems(updatedList); // Set the updated list in the state
     } catch (error) {
       console.error(error);
     }
@@ -65,21 +65,8 @@ const App = () => {
 
   return (
     <div className='App'>
-      <div className='container'>
-      <SideBar></SideBar>
-      <TaskList></TaskList>
-      <Calender></Calender>   
+        <TaskList events={listItems}></TaskList>
     </div>
-    <div className='statsCon'>
-          <Streaks></Streaks>
-          <Consistency></Consistency>
-          <CompStatus></CompStatus>
-    </div> 
-      
-     
-     
-    </div>
-    
   );
 };
 

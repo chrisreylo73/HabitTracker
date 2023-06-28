@@ -15,8 +15,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 CORS(app)
 
-def getCurrentDateAndTime():
-   c = calendar.TextCalendar(calender.)
+# def getCurrentDateAndTime():
+#    c = calendar.TextCalendar(calender.)
 
 
 # Creating a model named User. In postgres it will show up as a table.

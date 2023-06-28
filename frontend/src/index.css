@@ -1,90 +1,101 @@
 .App{
    display: flex;
    flex-direction: column;
+   align-items: center;
 }
-.container{
-   display: flex;
-   flex-direction: row;
-}
-.sideBar{
+.header{
    display: flex;
    flex-direction: column;
    align-items: center;
+   border-radius: 15px 15px 0px 0px;
    background-color: #2a2d2e;
-   width: 90px;
-   height: 65vh;
-   margin: 8px;
-   border-radius: 20px;
-   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-}
-.calendar{
-   background-color: #2a2d2e;
-   width: 1100px;
-   height: 65vh;
-   margin: 8px;
-   border-radius: 20px;
-   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-
-}
-.statsCon{
-   display: flex;
-   flex-direction: row;
-   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-   /* margin-left: 100px; */
-}
-.streaks{
-   background-color: #2a2d2e;
-   width:70vh;
-   height: 28vh;
-   margin: 5px;
-   border-radius: 20px;
-   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-}
-.consist{
-   background-color: #2a2d2e;
-   width: 70vh;
-   height: 28vh;
-   margin: 5px;
-   border-radius: 20px;
    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 .taskList{
-   /* display: flex;
-   flex-direction: column;
-   align-items: center; */
    background-color: #ced5d7;
-   width: 300px;
-   height: 65vh;
+   width: 400px;
+   height: 80vh;
    margin: 8px;
    border-radius: 20px;
    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
-.compStatus{
+
+.footer{
+   z-index: 200;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   position: absolute;
+   bottom:17%;
+   margin-left: 200px;
+   width: 200px;
+   height: 80px;
+   border-radius: 40px 0px 0px 0px;
+   background-color: #2f3030;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+.footerBtns{
+   margin-left: 15px;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+}
+
+
+
+
+.addUI{
+   z-index: 1;
    background-color: #2a2d2e;
-   width: 70vh;
-   height: 28vh;
-   margin: 5px;
+   width: 180px;
+   height: 40px;
+   position:absolute;
+   bottom:93%;
+   border-radius: 10px 0px 0px 0px;
+   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.8);
+   margin-left: 20px;
+}
+.deleteUI{
+   z-index: 999;
+   background-color: #202020;
+   width: 300px;
+   height: 65vh;
+   margin-left: 423px;
    border-radius: 20px;
    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+   position: absolute;
 }
-.header{
-   border-radius: 15px 15px 0px 0px;
-   background-color: #2a2d2e;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-}
-/* .sideBarButton {
-   display: flex;
-   margin-left: 20px;
-} */
 
-/* button{
-   border-radius: 10px;
-   height: 50px;
-   width: 50px;
+.listItems{
+   list-style-type: none;
+}
+
+.listItems label{
+   color: black;
+   font-size: 40;
+}
+
+
+.sb-button {
+   display: flex;
+   flex-direction: row;
+   align-items: flex-end;
+}
+
+.ui-input{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   width: 180px;
+   background-color: #2a2d2e;
+   height: 35px;
+   border-radius: 8px;
+}
+
+.ui-input input{
    border: none;
-   background-color: #097fe6;
-   box-shadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
-} */
+   border-radius: 8px;
+   width: 110px;
+   height: 25px;
+   margin-left: 10px;
+}
