@@ -1,9 +1,10 @@
-const Header = ({text, width, height}) => {
+const Header = ({text}) => {
   const style = {
    display: 'flex',
    flexDirection: 'column',
    alignItems: 'center',
-   fontSize: 20,
+   fontSize: 22,
+   fontWeight: 'bolder'
   };
 
   return (

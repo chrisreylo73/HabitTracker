@@ -2,21 +2,15 @@ from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from flask_cors import CORS
-import calendar
-# import psycopg2
 import os 
 from dotenv import load_dotenv
 load_dotenv()
-# url = os.getenv("DATABASE_URL")
-# connection =psycopg2.connect(url)
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 CORS(app)
 
-# def getCurrentDateAndTime():
-#    c = calendar.TextCalendar(calender.)
 
 
 # Creating a model named User. In postgres it will show up as a table.
@@ -25,12 +19,10 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-
     # constructor method  
     def __init__(self, username, email):
         self.username = username
-        self.email = email
-    
+        self.email = email    
     # check if the username exists 
     def exists(username):
          return User.query.filter_by(username=username).first() is not None
@@ -57,10 +49,6 @@ def format_event(event):
       "created_at": event.created_at
    }
 
-class Habit(db.Model):
-   id = db.Column(db.Integer, primary_key=True)
-   name = db.Column(db.String(100), nullable=False)
-   description = db.Column(db.String(100), nullable=False)
    
    
 app.app_context().push()

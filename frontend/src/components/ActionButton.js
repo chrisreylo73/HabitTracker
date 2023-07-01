@@ -12,14 +12,13 @@ const ActionButton = ({ text, onClick }) => {
     setIsHovered(false);
   };
 
-  const handleClick = () => {
-    if(isClicked){
+  const handleClick = (e) => {
+    setIsClicked(true);
+    setTimeout(() => {
       setIsClicked(false);
-    }else{
-      setIsClicked(true);
-    }
+    }, 300);
     if(onClick){
-      onClick()
+      onClick(e);
     }
   };
 

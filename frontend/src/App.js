@@ -7,6 +7,7 @@ import {format} from "date-fns"
 // Styling
 import './App.css';
 import TaskList from './components/TaskList';
+import Footer from './components/Footer';
 
 
 
@@ -14,7 +15,6 @@ const baseUrl = "http://localhost:5000"
 
 const App = () => {
   const [listItems, setListItems] = useState([]); // State variable to hold the list of items fetched from the backend
-  const [newItem, setNewItem] = useState(''); // State variable to store the value of a new item to be added
   
   useEffect(() => {
     fetchListItems(); // Fetch the list items from the backend when the component mounts
@@ -31,11 +31,10 @@ const App = () => {
   };
 
   // Function to add a new item to the list
-  const addListItem = async () => {
+  const addListItem = async (newItem) => {
     try {
       const response = await axios.post(`${baseUrl}/events`, { description: newItem }); // Make a POST request to add the new item
       setListItems([...listItems, response.data]); // Add the newly created item to the list
-      setNewItem(''); // Reset the new item value
     } catch (error) {
       console.error(error);
     }
@@ -67,7 +66,35 @@ const App = () => {
 
   return (
     <div className='App'>
-        <TaskList events={listItems}></TaskList>
+      <TaskList 
+         listItems={listItems}
+         add={addListItem}
+         del={deleteListItem}
+         update={updateListItem}
+      />
+
+     {/* <div>
+        <h1>List Interface</h1>
+        <ul>
+          {listItems.map((item) => (
+            <li key={item.id}>
+              {item.description}
+              <button onClick={() => deleteListItem(item.id)}>Delete</button>
+              <input
+                type="text"
+                value={item.description}
+                onChange={(e) => updateListItem(item.id, e.target.value)}
+              />
+            </li>
+          ))}
+        </ul>
+        <input
+          type="text"
+          value={newItem}
+          onChange={(e) => setNewItem(e.target.value)}
+        />
+        <button onClick={addListItem}>Add Item</button>
+      </div> */}
     </div>
   );
 };
@@ -75,27 +102,3 @@ const App = () => {
 export default App;
 
 
-
-// <div>
-    //   <div className='calender'></div>
-    //   <h1>List Interface</h1>
-    //   <ul>
-    //     {listItems.map((item) => (
-    //       <li key={item.id}>
-    //         {item.description}
-    //         <button onClick={() => deleteListItem(item.id)}>Delete</button>
-    //         <input
-    //           type="text"
-    //           value={item.description}
-    //           onChange={(e) => updateListItem(item.id, e.target.value)}
-    //         />
-    //       </li>
-    //     ))}
-    //   </ul>
-    //   <input
-    //     type="text"
-    //     value={newItem}
-    //     onChange={(e) => setNewItem(e.target.value)}
-    //   />
-    //   <button onClick={addListItem}>Add Item</button>
-    // </div>

@@ -1,19 +1,20 @@
 import Footer from "./Footer";
 import Header from "./Header";
 import Item from "./Item";
-import React, { useState } from 'react';
 
-
-const TaskList = ({events}) => {
+const TaskList = ({listItems, add, update, del}) => {
   return (
     <div className='taskList'>
       <Header text ='Task List'></Header>
-        {events.map((event) => (
-          <Item text={event.description} key={event.id}/>
+        {listItems.map((item) => (
+          <Item 
+            key={item.id}
+            item={item}
+            del={del}
+            update={update}
+          />
         ))}
-      <div className="footerCont">
-        <Footer />
-      </div>
+        <Footer add={add}/>
     </div>
   )
 }

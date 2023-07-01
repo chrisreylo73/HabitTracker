@@ -37,6 +37,7 @@
    margin: 8px;
    border-radius: 20px;
    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.99);
+   position: absolute;
 }
 
 .header{
@@ -47,6 +48,7 @@
    background-color: #2a2d2e;
    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
    margin-bottom: 15px;
+   
 }
 
 .footer{
@@ -55,9 +57,9 @@
    flex-direction: row;
    align-items: center;
    position: absolute;
-   bottom:100px;
-   margin-left: 200px;
-   width: 200px;
+   bottom:0px;
+   margin-left: 150px;
+   width: 250px;
    height: 80px;
    border-radius: 40px 0px 0px 0px;
    background-color: #2f3030;
@@ -124,8 +126,8 @@
    margin: 7px;
    display: flex;
    height: 35px;
-   /* background-color: aqua; */
-   /* margin-bottom: 20px; Adjust the margin as needed */
+   width: auto;
+   
 }
  .checkbox-container input:checked ~ .checkmark {
    background-color: #ff8181;
@@ -149,6 +151,14 @@
  }
 
 
+ .delete {
+   position: absolute;
+   right: 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+
 
 
 
@@ -157,7 +167,7 @@
    flex-direction: row;
    align-items: flex-end;
 }
-.ui-input{
+/* .ui-input{
    display: flex;
    flex-direction: row;
    align-items: center;
@@ -165,11 +175,11 @@
    background-color: #2a2d2e;
    height: 35px;
    border-radius: 8px;
-}
+} */
 .ui-input input{
    border: none;
    border-radius: 8px;
-   width: 110px;
+   width: 150px;
    height: 25px;
    margin-left: 10px;
 }

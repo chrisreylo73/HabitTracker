@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const UIButton = ({text, textcolor, bkcolor, width, height, onClick}) => {
+const UIButton = ({text, textcolor, bkcolor, width, height, func}) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
 
@@ -12,7 +12,8 @@ const UIButton = ({text, textcolor, bkcolor, width, height, onClick}) => {
     setIsHovered(false);
   };
   
-  const handleClick = () => {
+  const handleClick = (e) => {
+    func(e);
     setIsClicked(true);
     setTimeout(() => {
       setIsClicked(false);

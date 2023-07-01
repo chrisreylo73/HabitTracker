@@ -1,23 +1,36 @@
 import ActionButton from './ActionButton';
 import React, { useState } from 'react';
-import AddUI from './AddUI';
 
-const Footer = ({addFunc}) => {
+const Footer = ({add}) => {
    
-   const [isVisible, setIsVisible] = useState(false);
+  const [newItem, setNewItem] = useState('');
 
-   const handleButtonClick = () => {
-    setIsVisible(!isVisible); // Toggle the visibility state when the button is clicked
+  const handleInputChange = (e) => {
+    setNewItem(e.target.value);
+  };
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (newItem.trim() !== '') {
+      add(newItem);
+      setNewItem('');
+    }
   };
 
   return (
     <div className='footer'>
       <div className='footerBtns'>
-        <ActionButton text="+" onClick={handleButtonClick}></ActionButton>
-        <ActionButton text="--"></ActionButton>
-        <ActionButton text="[ __ ]"></ActionButton>
+        <ActionButton text="+" onClick={handleSubmit}></ActionButton>
+        <div className='ui-input'>
+            <input 
+              type='text' 
+              placeholder="Title"
+              value={newItem}
+              onChange={handleInputChange}
+            />
+        </div>
       </div>
-      {isVisible && <AddUI function={addFunc}/>}
     </div>
   );
 }
