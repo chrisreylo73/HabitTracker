@@ -11,7 +11,7 @@ const Footer = ({addFunc}) => {
   };
 
   return (
-    <div className={`footer`}>
+    <div className='footer'>
       <div className='footerBtns'>
         <ActionButton text="+" onClick={handleButtonClick}></ActionButton>
         <ActionButton text="--"></ActionButton>

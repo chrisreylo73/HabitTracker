@@ -1,22 +1,16 @@
-import Footer from "./Footer"
-import Header from "./Header"
-
+import Footer from "./Footer";
+import Header from "./Header";
+import Item from "./Item";
 import React, { useState } from 'react';
 
-const TaskList = ({events}) => {
-  
 
+const TaskList = ({events}) => {
   return (
     <div className='taskList'>
-      <Header text ='Todays Task List'></Header>
-      <ul className="listItems">
+      <Header text ='Task List'></Header>
         {events.map((event) => (
-          <li>
-            <input type='checkbox'/>
-            <label>{event.description}</label>
-          </li>
+          <Item text={event.description} key={event.id}/>
         ))}
-      </ul>
       <div className="footerCont">
         <Footer />
       </div>
