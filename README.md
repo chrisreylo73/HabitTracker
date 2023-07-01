@@ -9,9 +9,7 @@
     - Delete Tasks
     - Update Tasks
 
-![Alt text](image-1.png)
-
-
+![Alt text](images/image-1.png)
 
 ---
 # Technologies
@@ -31,7 +29,7 @@
 
       Next open command pallet and go to "Python select interpreter" and add the VE location as seen below.
 
-![Alt text](image.png) 
+![Alt text](images/image.png) 
 
       Here we install the packages needed for the app
       - pipenv install flask flask-sqlalchemy psycopg2 python-dotenv flask-cors
