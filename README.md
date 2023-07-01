@@ -3,14 +3,15 @@
 # Description
       Full-Stack webapp that allows you to preform CRUD operations to keep track of your daily tasks.
 ---
-# Demo
+# Features
     - List and Mark off Completed Tasks
-     
     - Add New Tasks
-     
     - Delete Tasks
-     
     - Update Tasks
+
+![Alt text](image-1.png)
+
+
 
 ---
 # Technologies
