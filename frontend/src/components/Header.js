@@ -1,17 +1,11 @@
-const Header = ({text}) => {
-  const style = {
-   display: 'flex',
-   flexDirection: 'column',
-   alignItems: 'center',
-   fontSize: 22,
-   fontWeight: 'bolder'
-  };
-
+// Define a functional component called Header
+const Header = ({ text }) => {
+  // Render the header element
   return (
     <div className="header">
-      <p style={style}>{text}</p>
+      <p>{text}</p> {/* Display the text prop */}
     </div>
-  )
+  );
 }
 
-export default Header
+export default Header; // Export the Header component as the default export

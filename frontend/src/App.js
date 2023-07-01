@@ -72,29 +72,6 @@ const App = () => {
          del={deleteListItem}
          update={updateListItem}
       />
-
-     {/* <div>
-        <h1>List Interface</h1>
-        <ul>
-          {listItems.map((item) => (
-            <li key={item.id}>
-              {item.description}
-              <button onClick={() => deleteListItem(item.id)}>Delete</button>
-              <input
-                type="text"
-                value={item.description}
-                onChange={(e) => updateListItem(item.id, e.target.value)}
-              />
-            </li>
-          ))}
-        </ul>
-        <input
-          type="text"
-          value={newItem}
-          onChange={(e) => setNewItem(e.target.value)}
-        />
-        <button onClick={addListItem}>Add Item</button>
-      </div> */}
     </div>
   );
 };
