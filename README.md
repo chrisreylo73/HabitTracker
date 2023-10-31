@@ -1,56 +1,24 @@
-# TASK LIST 
----
-# Description
-      Full-Stack webapp that allows you to preform CRUD operations to keep track of your daily tasks.
----
-# Features
-    - List and Mark off Completed Tasks
-    - Add New Tasks
-    - Delete Tasks
-    - Update Tasks
+<summary> Task List </summary>
+<pre>
+    
+#   `DESCRIPTION`
+`
+Tasklist is a feature-rich full-stack application designed to help users effectively manage their daily tasks.
+Built using a modern technology stack that includes React, JavaScript, HTML, CSS, Python, Flask, and SQLAlchemy,
+Tasklist provides a user-friendly and customizable platform for organizing and tracking tasks,
+whether for personal or professional use.
+`
 
-![Alt text](images/image-1.png)
+#   `DEMO`
+<img src="https://github.com/chrisreylo73/chrisreylo73/assets/72224622/ba4e7e7f-67ed-4497-8ce0-b3d0594d9445" width="400" height="600" alt="CODE_SWEEP_1_DEMO">
 
----
-# Technologies
-      Python, React, postgreSQL Flask, SQLalchemy
+#   `TECH STACK`
+- React
+- Javascript
+- HTML & CSS
+- Python
+#    `LINKS`
+- [Link to Repository](https://github.com/chrisreylo73/TASKLIST)
 
----
-# Set-up
 
-## Backend 
-
-      We use a virtual environment to make sure our packages are independently used for this project only. 
-      Basically we are isolating pip installs.
-
-      We use pipenv to set up virtual environment
-      - pip install pipenv
-      - pipenv shell
-
-      Next open command pallet and go to "Python select interpreter" and add the VE location as seen below.
-
-![Alt text](images/image.png) 
-
-      Here we install the packages needed for the app
-      - pipenv install flask flask-sqlalchemy psycopg2 python-dotenv flask-cors
-
-      Next we can run our app using and add the file .flaskenv to set up debug mode and other helpful commands
-      - flask run
-
-## Frontend
-
-      Create boiler plate react app in frontend folder
-
-      - npx create-react-app frontend
-
-      Go to frontend dir and add some libraries
-      - cd frontend
-      - npm i axios date-fns
-
-      start up dev server     
-      - npm start
----
-# Possible Future Improvements
-
-      - Track and Generate statistics
-      - Calender to visually see consistence
+</pre>
